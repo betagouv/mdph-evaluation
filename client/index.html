@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>Outils de soutien a l'evaluation</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+    <link rel="stylesheet" href="lib/angular-chart.js/angular-chart.min.css" />
+    <link rel="stylesheet" href="lib/angular-toastr/angular-toastr.min.css" />
+    <link rel="stylesheet" href="lib/angular-ui-tree/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="lib/mapbox.js/mapbox.css" />
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="evaluationApp">
+    <!--[if lt IE 10]>
+    <div class="browsehappy text-center">
+      Vous utilisez un navigateur web obsolète et donc <strong>non sécurisé</strong>.
+      <br>Cette application ne fonctionne pas sur celui-ci.
+      <br><a href="http://browsehappy.com/">Mettez à jour votre navigateur</a> pour l'utiliser.
+      <br>Si vous utilisez un poste fourni par votre employeur, demandez à votre administrateur d'installer une version récente de <a href="https://www.mozilla.org/fr/firefox/new/">Mozilla Firefox</a> ou <a href="http://www.google.com/chrome/">Google Chrome</a>.
+      <br>Si vous êtes sous Windows XP (SP2), Vista, 7 ou supérieur, l'installation de Chrome peut être réalisée de manière autonome
+      <br>sans droits d'administration sur votre poste,
+      <a href="https://www.google.com/chrome/browser/index.html?standalone=1">faites-le vous-même</a> !
+    </div>
+    <![endif]-->
+
+    <div ui-view=""></div>
+
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u = '//stats.data.gouv.fr/';
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', 14]);
+        var d = document;
+        var g = d.createElement('script');
+        var s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+    <noscript><p><img src="//stats.data.gouv.fr/piwik.php?idsite=14" style="border:0;" alt="" /></p></noscript>
+
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-locale_fr-fr.js"></script>
+    <script src="lib/angular/angular-aria.min.js"></script>
+    <script src="lib/angular/angular-cookies.min.js"></script>
+    <script src="lib/angular/angular-messages.min.js"></script>
+    <script src="lib/angular/angular-resource.min.js"></script>
+    <script src="lib/angular/angular-sanitize.min.js"></script>
+    <script src="lib/angular-chart.js/Chart.min.js"></script>
+    <script src="lib/angular-chart.js/angular-chart.min.js"></script>
+    <script src="lib/angular-toastr/angular-toastr.tpls.min.js"></script>
+    <script src="lib/angular-ui-mask/mask.min.js"></script>
+    <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="lib/angular-ui-tree/angular-ui-tree.min.js"></script>
+    <script src="lib/lodash/lodash.min.js"></script>
+    <script src="lib/mapbox.js/mapbox.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="lib/moment/fr.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/ui-bootstrap/ui-bootstrap-custom-tpls-0.13.3.min.js"></script>
+    <script src="lib/zxcvbn/zxcvbn.js"></script>
+    <script src="lib/zxcvbn/angular-zxcvbn.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.tmp) app/app.js -->
+      <script src="app/app.js"></script>
+      <!-- injector:js -->
+      <script src="components/auth/auth.module.js"></script>
+      <script src="components/util/util.module.js"></script>
+      <script src="components/display-file/display-file.directive.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/account/resend_confirmation/resend_confirmation.controller.js"></script>
+      <script src="app/account/reset_password/resest_password.controller.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/app.constants.js"></script>
+      <script src="app/apropos/apropos.js"></script>
+      <script src="app/evaluation/detail/detail.controller.js"></script>
+      <script src="app/evaluation/evaluation.controller.js"></script>
+      <script src="app/evaluation/evaluation.js"></script>
+      <script src="app/layout/layout.controller.js"></script>
+      <script src="app/layout/layout.js"></script>
+      <script src="app/mon_compte/mon_compte.controller.js"></script>
+      <script src="app/mon_compte/mon_compte.js"></script>
+      <script src="app/account/account.js"></script>
+      <script src="components/auth/auth.service.js"></script>
+      <script src="components/auth/interceptor.service.js"></script>
+      <script src="components/auth/router.decorator.js"></script>
+      <script src="components/date-filter/date.filter.js"></script>
+      <script src="components/date-service/date.service.js"></script>
+      <script src="components/detail/precisez_date.controller.js"></script>
+      <script src="components/detail/precisez_duree.controller.js"></script>
+      <script src="components/display-file/display-file-list.directive.js"></script>
+      <script src="app/account/confirmer_mail/confirmer_mail.controller.js"></script>
+      <script src="components/document-information/document-information.component.js"></script>
+      <script src="components/geva/geva.service.js"></script>
+      <script src="components/history-filter/history.filter.js"></script>
+      <script src="components/history-synthese/history-synthese.directive.js"></script>
+      <script src="components/input-date/input-date-autocomplete.directive.js"></script>
+      <script src="components/input-date/input-date.directive.js"></script>
+      <script src="components/nav-steps/nav-steps.component.js"></script>
+      <script src="components/password-strength-bar/password-strength-bar.component.js"></script>
+      <script src="components/preparation_evaluation/documents_preparation_eval.constant.js"></script>
+      <script src="components/preparation_evaluation/preparation_evaluation.service.js"></script>
+      <script src="components/prestations/prestations.filter.js"></script>
+      <script src="components/qtitle/qtitle.directive.js"></script>
+      <script src="components/resources/profile.resource.js"></script>
+      <script src="components/resources/user.resource.js"></script>
+      <script src="components/role/role.filter.js"></script>
+      <script src="components/section-progress-bar/section-progress-bar.directive.js"></script>
+      <script src="components/string/capitalize.filter.js"></script>
+      <script src="components/subsection/subsection.directive.js"></script>
+      <script src="components/synthese/synthese.resource.js"></script>
+      <script src="components/timeline/action-type.filter.js"></script>
+      <script src="components/timeline/action-types.constant.js"></script>
+      <script src="components/upload/upload.service.js"></script>
+      <script src="app/account/forgotten_password/forgotten_password.controller.js"></script>
+      <script src="components/util/util.service.js"></script>
+      <!-- endinjector -->
+    <!-- endbuild -->
+</body>
+</html>

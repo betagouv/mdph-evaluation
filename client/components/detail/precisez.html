@@ -1,0 +1,10 @@
+<div class="form-group">
+  <label for="exampleInputPassword1" class="control-label">{{answer.detailLabel || 'Précisez'}}</label>
+  <textarea name="{{answer.detailModel}}" ng-model="sectionModel[answer.detailModel]" class="form-control"
+    id="exampleInputPassword1" placeholder="{{answer.placeholder}}" required>
+  </textarea>
+
+  <div ng-messages="questionForm[answer.detailModel].$error" ng-if="questionForm.showError">
+    <div class="help-block" ng-message='required'><i class="fa fa-warning"></i> Ce champ est obligatoire</div>
+  </div>
+</div>

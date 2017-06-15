@@ -1,0 +1,53 @@
+<div class="display-file">
+  <div class="description">
+    <div class="text">
+      <div class="name">
+        <div ng-if="file.sending">
+          <i class="fa fa-spin fa-circle-o-notch"></i> Envoi en cours...
+        </div>
+        <i class="fa" ng-class="{
+        'fa-file-pdf-o': file.mimetype === 'application/pdf',
+        'fa-file-image-o': file.mimetype.indexOf('image') >= 0,
+        'fa-file-text-o': file.mimetype.indexOf('image') < 0 && file.mimetype !== 'application/pdf'}">
+        </i>
+
+        <a
+          target="_self"
+          ng-if="!file.sending"
+          download="{{file.originalname}}"
+          href="api/requests/{{request.shortId}}/document/{{getFilename(file)}}?access_token={{token}}">
+          {{file.originalname}}
+        </a>
+      </div>
+
+      <div class="partenaire" ng-if="file.partenaire">
+        <div ng-if="!partenaireObj">
+          <i class="fa fa-spin fa-circle-o-notch"></i> Chargement...
+        </div>
+        <div ng-if="partenaireObj">  Ajouté par {{partenaireObj.email}}</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="file-actions" ng-if="!hideActions && fileEditable">
+    <div class="validation-actions">
+      <button type="button" class="fab invert-refuse" ng-click="setInvalid(true)" ng-class="{muted: (file.isInvalid === undefined) || file.isInvalid === false}">
+        <i class="fa fa-thumbs-down"></i>
+      </button>
+      <button type="button" class="fab invert-valid" ng-click="setInvalid(false)" ng-class="{muted: (file.isInvalid === undefined) || file.isInvalid === true}">
+        <i class="fa fa-thumbs-up"></i>
+      </button>
+    </div>
+  </div>
+
+  <div ng-if="hideActions">
+    <div class="text-validation text-invalid" ng-if="file.isInvalid === true">document non conforme</div>
+    <div class="text-validation text-valid" ng-if="file.isInvalid === false">document validé</div>
+  </div>
+
+  <button type="button" class="trash btn btn-link" ng-click="delete()" ng-if="fileEditable">
+    <i class="fa fa-trash"></i>&nbsp;Supprimer
+  </button>
+
+</div>

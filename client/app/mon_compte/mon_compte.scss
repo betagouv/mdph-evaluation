@@ -1,0 +1,37 @@
+#mon-compte {
+  padding: 40px 60px;
+
+  form {
+    max-width: 340px;
+  }
+
+  .panel-danger {
+    .panel-heading {
+      background-color: $light-red;
+      color: white;
+      border-bottom: none;
+
+      h1 {
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  .panel-default {
+    .panel-heading {
+      background-color: lighten($lighter-blue, 5%);
+      color: white;
+      border-bottom: none;
+
+      h1 {
+        font-size: 1.4em;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  #mon-compte {
+    padding: 0;
+  }
+}
