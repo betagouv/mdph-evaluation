@@ -1,0 +1,62 @@
+{
+  "apps" : [
+    {
+      "name"      : "Mdph-1",
+      "script"    : "/home/deploy/www/current/dist/server/app.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BASE_URL": "https://mdph.beta.gouv.fr",
+        "PORT": 9000,
+        "SESSION_SECRET": "session_secret",
+        "SMTP_USER": "mailjet_api_key",
+        "SMTP_PASS": "mailjet_secret_key",
+        "SMTP_HOST": "in.mailjet.com",
+        "SMTP_PORT": "465",
+        "MAIL_FROM": "contact@mdph.beta.gouv.fr",
+        "UPLOAD_DIR": "/path/to/upload/dir",
+        "CRON_ENABLED": true
+      }
+    },
+    {
+      "name"      : "Mdph-2",
+      "script"    : "/home/deploy/www/current/dist/server/app.js",
+      "env": {
+        "NODE_ENV": "production",
+        "BASE_URL": "https://mdph.beta.gouv.fr",
+        "PORT": 9000,
+        "SESSION_SECRET": "session_secret",
+        "SMTP_USER": "mailjet_api_key",
+        "SMTP_PASS": "mailjet_secret_key",
+        "SMTP_HOST": "in.mailjet.com",
+        "SMTP_PORT": "465",
+        "MAIL_FROM": "contact@mdph.beta.gouv.fr",
+        "UPLOAD_DIR": "/path/to/upload/dir"
+      }
+    }
+  ],
+
+  "deploy" : {
+    "production" : {
+      "user" : "deploy",
+      "host" : "mdph.infra.beta.gouv.fr",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:sgmap/mdph.git",
+      "path" : "/home/deploy/www",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "post-deploy" : "yarn install && yarn build && pm2 startOrRestart /home/deploy/pm2.json"
+    },
+
+    "vagrant" : {
+      "user" : "deploy",
+      "host" : "192.168.56.25",
+      "port": "2200",
+      "ref"  : "origin/master",
+      "repo" : "https://github.com/sgmap/mdph.git",
+      "path" : "/home/deploy/www",
+      "post-deploy" : "yarn install && yarn build && pm2 startOrRestart /home/deploy/pm2.json",
+      "env": {
+        "UPLOAD_DIR": "/home/deploy/uploads"
+      }
+    }
+  }
+}

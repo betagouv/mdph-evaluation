@@ -1,0 +1,29 @@
+<nav role="navigation">
+  <a ui-sref="main">
+    <img src="assets/images/logo_marianne.png" alt="Retourner à l'accueil" />
+  </a>
+  <h1>Outils de soutiens a l'évaluation</h1>
+
+  <ul ng-if="!layoutctrl.isLoggedIn()">
+    <li>
+      <a class="icon login" id="login" ui-sref="login" title="Connexion">Connexion</a>
+    </li>
+  </ul>
+
+  <ul ng-if="layoutctrl.isLoggedIn()">
+    <li>
+      <a ui-sref="mon_compte">Mon compte</a>
+    </li>
+    <li>
+      <a ui-sref="logout" id="logout">Déconnexion</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="main-content">
+    <div ui-view></div>
+  </main>
+</div>
+
+<footer>
+</footer>

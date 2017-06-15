@@ -1,0 +1,37 @@
+<div class="row form-horizontal" ng-controller="PrecisezDureeCtrl">
+  <label class="col-md-1 control-label">Du :</label>
+  <div class="col-md-4">
+    <input
+      type="text"
+      class="form-control"
+      name="detailDebut"
+      id="date-de-debut"
+      ng-model="sectionModel[answer.detailModel]['debut']"
+      input-date
+      date-autocomplete
+      placeholder="JJ/MM/AAAA"
+      aria-describedby="help-date-de-debut">
+    <div ng-messages="questionForm.detailDebut.$error" ng-if="questionForm.showError">
+      <p class="help-block" id="help-date-de-debut" ng-message='inputDate'>Veuillez utiliser le format JJ/MM/AAAA. Par exemple : 14/09/1989.</p>
+      <p class="help-block" id="help-date-de-debut" ng-message='required'>Ce champ est obligatoire.</p>
+    </div>
+  </div>
+
+  <label class="col-md-1 col-md-offset-1 control-label">Au :</label>
+  <div class="col-md-4">
+    <input
+      type="text"
+      class="form-control"
+      name="detailFin"
+      id="date-de-fin"
+      ng-model="sectionModel[answer.detailModel]['fin']"
+      input-date
+      date-autocomplete
+      placeholder="JJ/MM/AAAA"
+      aria-describedby="help-date-de-fin">
+    <div ng-messages="questionForm.detailFin.$error" ng-if="questionForm.showError">
+      <p class="help-block" id="help-date-de-fin" ng-message='inputDate'>Veuillez utiliser le format JJ/MM/AAAA. Par exemple : 14/09/1989.</p>
+      <p class="help-block" id="help-date-de-fin" ng-message='required'>Ce champ est obligatoire.</p>
+    </div>
+  </div>
+</div>

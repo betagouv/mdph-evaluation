@@ -1,0 +1,17 @@
+<fieldset>
+  <legend ng-hide="hideTitle" class="control-label">Et vous êtes</legend>
+
+  <div>
+    <input type="radio" name="proprietaire" id="domicile-proprietaire"
+      ng-model="sectionModel[answer.detailModel]" value="'proprietaire'"
+      ng-required="!sectionModel[answer.detailModel]">
+    <label for="domicile-proprietaire">Propriétaire</label>
+  </div>
+
+  <div>
+    <input type="radio" name="proprietaire" id="domicile-locataire"
+      ng-model="sectionModel[answer.detailModel]" value="'locataire'"
+      ng-required="!sectionModel[answer.detailModel]">
+    <label for="domicile-locataire">Locataire</label>
+  </div>
+</fieldset>
