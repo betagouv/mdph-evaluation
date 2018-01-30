@@ -1,0 +1,12 @@
+<table>
+  <tbody>
+    <th>Liste des fiches de synthese</th>
+    <tr ng-repeat="synthese in syntheseListCtrl.syntheses">
+      <td>
+          <a ui-sref="detail({syntheseId: synthese._id, sectionId: 'environnement'})">
+            {{ syntheseListCtrl.getSyntheseTitle(synthese) }}
+          </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

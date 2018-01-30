@@ -1,0 +1,117 @@
+<!doctype html>
+<html class="no-js" lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>Accueil</title>
+    <meta name="description" content="Questionnaire et suivi en ligne de votre demande à votre MDPH">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+    <link rel="stylesheet" href="lib/angular-chart.js/angular-chart.min.css" />
+    <link rel="stylesheet" href="lib/angular-toastr/angular-toastr.min.css" />
+    <link rel="stylesheet" href="lib/angular-ui-tree/angular-ui-tree.min.css" />
+    <link rel="stylesheet" href="lib/mapbox.js/mapbox.css" />
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="evaluationApp">
+    <!--[if lt IE 10]>
+    <div class="browsehappy text-center">
+      Vous utilisez un navigateur web obsolète et donc <strong>non sécurisé</strong>.
+      <br>Cette application ne fonctionne pas sur celui-ci.
+      <br><a href="http://browsehappy.com/">Mettez à jour votre navigateur</a> pour l'utiliser.
+      <br>Si vous utilisez un poste fourni par votre employeur, demandez à votre administrateur d'installer une version récente de <a href="https://www.mozilla.org/fr/firefox/new/">Mozilla Firefox</a> ou <a href="http://www.google.com/chrome/">Google Chrome</a>.
+      <br>Si vous êtes sous Windows XP (SP2), Vista, 7 ou supérieur, l'installation de Chrome peut être réalisée de manière autonome
+      <br>sans droits d'administration sur votre poste,
+      <a href="https://www.google.com/chrome/browser/index.html?standalone=1">faites-le vous-même</a> !
+    </div>
+    <![endif]-->
+
+    <div ui-view=""></div>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="http://piwik.mdphenligne.cnsa.fr/piwik/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Piwik Code -->
+
+    <!-- Piwik Image Tracker-->
+    <img src="http://piwik.mdphenligne.cnsa.fr/piwik/piwik.php?idsite=1&rec=1" style="border:0" alt="" />
+    <!-- End Piwik -->
+
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular/angular-locale_fr-fr.js"></script>
+    <script src="lib/angular/angular-aria.min.js"></script>
+    <script src="lib/angular/angular-cookies.min.js"></script>
+    <script src="lib/angular/angular-messages.min.js"></script>
+    <script src="lib/angular/angular-resource.min.js"></script>
+    <script src="lib/angular/angular-sanitize.min.js"></script>
+    <script src="lib/angular-chart.js/Chart.min.js"></script>
+    <script src="lib/angular-chart.js/angular-chart.min.js"></script>
+    <script src="lib/angular-toastr/angular-toastr.tpls.min.js"></script>
+    <script src="lib/angular-ui-mask/mask.min.js"></script>
+    <script src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script src="lib/angular-ui-tree/angular-ui-tree.min.js"></script>
+    <script src="lib/lodash/lodash.min.js"></script>
+    <script src="lib/mapbox.js/mapbox.js"></script>
+    <script src="lib/moment/moment.min.js"></script>
+    <script src="lib/moment/fr.js"></script>
+    <script src="lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+    <script src="lib/ngstorage/ngStorage.min.js"></script>
+    <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.13.3.min.js"></script>
+    <script src="lib/zxcvbn/zxcvbn.js"></script>
+    <script src="lib/zxcvbn/angular-zxcvbn.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js(.tmp) app/app.js -->
+      <script src="app/app.js"></script>
+      <!-- injector:js -->
+      <script src="components/auth/auth.module.js"></script>
+      <script src="components/util/util.module.js"></script>
+      <script src="components/input-date/input-date-autocomplete.directive.js"></script>
+      <script src="app/detail/detail.js"></script>
+      <script src="app/layout/layout.controller.js"></script>
+      <script src="app/layout/layout.js"></script>
+      <script src="app/login/login.controller.js"></script>
+      <script src="app/login/login.js"></script>
+      <script src="app/dashboard/dashboard.controller.js"></script>
+      <script src="components/auth/auth.service.js"></script>
+      <script src="components/auth/interceptor.service.js"></script>
+      <script src="components/auth/router.decorator.js"></script>
+      <script src="components/geva/geva.service.js"></script>
+      <script src="app/dashboard/dashboard.js"></script>
+      <script src="components/input-date/input-date.directive.js"></script>
+      <script src="components/nav-steps/nav-steps.component.js"></script>
+      <script src="components/resources/synthese.resource.js"></script>
+      <script src="components/resources/user.resource.js"></script>
+      <script src="components/string/capitalize.filter.js"></script>
+      <script src="components/synthese-add-empty/synthese-add-empty.component.js"></script>
+      <script src="components/synthese-add-empty/synthese-add-empty.controller.js"></script>
+      <script src="components/synthese-list/synthese-list.component.js"></script>
+      <script src="components/synthese-list/synthese-list.controller.js"></script>
+      <script src="components/trajectoire/trajectoire.component.js"></script>
+      <script src="components/trajectoire/trajectoire.controller.js"></script>
+      <script src="app/detail/detail.controller.js"></script>
+      <script src="components/util/util.service.js"></script>
+      <!-- endinjector -->
+    <!-- endbuild -->
+</body>
+</html>

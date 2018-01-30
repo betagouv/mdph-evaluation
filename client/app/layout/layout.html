@@ -1,0 +1,30 @@
+<div id="evaluation">
+  <nav role="navigation">
+  <a ui-sref="dashboard">
+    <img src="assets/images/logo_defaut.jpg" alt="Retourner à l'accueil" />
+  </a>
+
+  <ul ng-if="!layoutCtrl.isLoggedIn()">
+    <li>
+      <a class="icon login" id="login" ui-sref="login" title="Connexion">Connexion</a>
+    </li>
+  </ul>
+
+  <ul ng-if="layoutCtrl.isLoggedIn()">
+    <li>
+      <a ui-sref="logout" id="logout">Déconnexion</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="main-content">
+  <main>
+    <div ui-view></div>
+  </main>
+</div>
+
+<footer>
+  <div class="links">
+  </div>
+</footer>
+</div>

@@ -1,0 +1,71 @@
+
+  <div class="list-header">
+    <h2 class="padding-title">Fiche de synthèse de  {{ currentSynthese.firstname }} {{ currentSynthese.lastname }}</h2>
+  </div>
+  <div id="section-detail">
+    <form id="profilFormId" name="profilForm" novalidate>
+
+      <a ui-sref="dashboard"><i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Retour à la liste des fiches de synthèse</a>
+
+      <div class="panel with-nav-tabs panel-default">
+        <div class="panel-heading">
+          <ul class="nav nav-tabs nav-justified">
+            <li ui-sref-active="active" ng-repeat="section in sections" role="presentation">
+              <a ui-sref="detail({sectionId: section.id})">{{section.label}}</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel-body" ng-if="section.id == 'profil'">
+
+          <div class="form-group required" ng-class="{'has-error': profilForm.lastname.$invalid && profilForm.$submitted}">
+            <label for="lastname" class="control-label">Nom de naissance</label>
+            <input id="lastname" type="text" name="lastname" value="{{currentSynthese.lastname}}" class="form-control" ng-model="currentSynthese.lastname" ng-minlength="1" required ng-change="detailCtrl.change()" ng-model-options="{updateOn: 'blur'}">
+            <div ng-messages="profilForm.lastname.$error" ng-if="profilForm.$submitted">
+              <p class="help-block" ng-message='required'>Ce champ est obligatoire.</p>
+              <p class="help-block" ng-message='minlength'>La longueur minimale du nom est de 1 caractère.</p>
+            </div>
+          </div>
+
+          <div class="form-group required" ng-class="{'has-error': profilForm.firstname.$invalid && profilForm.$submitted}">
+            <label for="firstname" class="control-label">Prénoms</label>
+            <input id="firstname" type="text" name="firstname" value="{{currentSynthese.firstname}}" class="form-control" ng-model="currentSynthese.firstname" ng-minlength="1" required ng-change="detailCtrl.change()" ng-model-options="{updateOn: 'blur'}">
+            <div ng-messages="profilForm.firstname.$error" ng-if="profilForm.$submitted">
+              <p class="help-block" ng-message='required'>Ce champ est obligatoire.</p>
+              <p class="help-block" ng-message='minlength'>La longueur minimale du nom est de 1 caractère.</p>
+            </div>
+          </div>
+
+          <div class="form-group required" ng-class="{'has-error': profilForm.birthdate.$invalid && profilForm.$submitted}">
+            <label for="birthdate" class="control-label">Date de naissance</label>
+            <input id="birthdate" type="text" name="birthdate" value="{{currentSynthese.birthdate}}" class="form-control" ng-model="currentSynthese.birthdate" ng-minlength="1"  placeholder="JJ/MM/AAAA" input-date date-autocomplete required
+                   ng-blur="detailCtrl.treatBirthDate()" >
+            <div ng-messages="profilForm.birthdate.$error" ng-if="profilForm.$submitted">
+              <p class="help-block" ng-message='required'>Ce champ est obligatoire.</p>
+              <p class="help-block" ng-message='inputDate'>Veuillez utiliser le format JJ/MM/AAAA. Par exemple : 14/09/1989.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="panel-body" ng-if="section.id != 'profile'">
+          <div ng-repeat="(trajectoire, questions) in section.trajectoires" class="trajectoire-body">
+            <h4 ng-if="trajectoire !== 'Toutes'">Trajectoires - {{trajectoire}}</h4>
+            <trajectoire questions="questions"
+                         deficience-question-id="currentSynthese.geva.deficience_principale"
+                         new-issue="newIssue"
+                         read-only="currentSynthese.request"/>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-btn">
+        <a target="_blank" class="btn btn-lg btn-primary" ng-click="detailCtrl.download()">Télécharger une fiche récapitulative de l'évaluation&nbsp;<i class="fa fa-download"></i></a>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div ui-view="issues"></div>
