@@ -39,9 +39,9 @@ projet de l'outil d'evaluation pour les MDPH
 
 We use [PM2 deploy](http://pm2.keymetrics.io/docs/usage/deployment/), `pm2 deploy pm2.json` to deploy the application and run it.
 
-## use
+## Use
 
-Add data manualy in MongoDB.
+Add manualy data in MongoDB.
 
 ### User
 
