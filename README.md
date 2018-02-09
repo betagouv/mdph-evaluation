@@ -2,8 +2,6 @@
 projet de l'outil d'evaluation pour les MDPH
 ================================================
 
-[![Build Status](https://circleci.com/gh/sgmap/mdph-evaluation.svg?style=svg)](https://circleci.com/gh/sgmap/mdph-evaluation)
-
 ## Getting Started
 
 ### Prerequisites
