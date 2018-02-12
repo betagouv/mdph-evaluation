@@ -28,7 +28,7 @@ projet de l'outil d'evaluation pour les MDPH
 
 ## Utilisation
 
-Apres avoir lancé le serveur, ajouter manuellement les données ci-dessous dans mongoDB.
+Apres avoir lancé le serveur, ajouter manuellement les données ci-dessous dans la base de données "evaluation" créé automatiquement dans mongoDB.
 
 ### User
 
@@ -37,7 +37,7 @@ Apres avoir lancé le serveur, ajouter manuellement les données ci-dessous dans
     "_id" : ObjectId("589adfdf4dcb8920e88eb377"),
     "name" : "evaluateur",
     "email" : "evaluateur@evaluation.cnsa.fr",
-    "hashedPassword" : "Vg0+y7TKEOn4ul4MDBJtccet5lZpFAN3io2w7fCDu5v6I2/FpJwGsrHDjYv4dmoJMOuAIgwQpmeWWMzfbsGdHA==", // mot de passe (encrypté avec SHA1)
+    "hashedPassword" : "Vg0+y7TKEOn4ul4MDBJtccet5lZpFAN3io2w7fCDu5v6I2/FpJwGsrHDjYv4dmoJMOuAIgwQpmeWWMzfbsGdHA==", // le mot de passe est "mot de passe" (encrypté avec SHA1)
     "salt" : "OnBOl0aN4uo7yFGZhTOhGQ==",
     "mdph" : ObjectId("560bdb46767f719e73c9fcbd"),
     "__v" : 0
